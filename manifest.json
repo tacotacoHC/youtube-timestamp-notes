@@ -1,0 +1,45 @@
+{
+  "name": "YouTube Timestamp Notes",
+  "description": "Save notes tied to timestamps while watching YouTube videos.",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "action": {
+    "default_title": "YouTube Notes",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "add-note-at-timestamp": {
+      "suggested_key": {
+        "default": "Alt+N",
+        "mac": "Option+N"
+      },
+      "description": "Add a note at the current YouTube timestamp"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "background": {
+    "service_worker": "service_worker.js"
+  }
+}

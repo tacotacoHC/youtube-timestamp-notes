@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YouTube Notes</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <div class="title">YouTube Notes</div>
+      <div class="sub">Saved timestamp notes</div>
+    </header>
+
+    <section class="controls">
+      <input id="search" placeholder="Search notes…" />
+      <div class="row">
+        <button id="export">Export</button>
+        <label class="importLabel">
+          Import
+          <input id="import" type="file" accept="application/json" />
+        </label>
+        <button id="clearAll" class="danger">Clear all</button>
+      </div>
+    </section>
+
+    <main id="list"></main>
+
+    <template id="videoTpl">
+      <div class="videoCard">
+        <div class="videoHeader">
+          <div class="videoTitle"></div>
+          <div class="videoMeta"></div>
+        </div>
+        <div class="notes"></div>
+      </div>
+    </template>
+
+    <template id="noteTpl">
+      <div class="noteRow">
+        <a class="timeLink" target="_blank" rel="noreferrer"></a>
+        <div class="noteText"></div>
+        <button class="deleteBtn" title="Delete">✕</button>
+      </div>
+    </template>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
